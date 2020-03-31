@@ -3,7 +3,6 @@ var letters = "abcdefghijklmnopqrstuvwxyz"
 var specialCharacters = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~"
 var numbers = "1234567890"
 
-var passwordLength = parseInt(prompt("How many characters? It must be between 8 and 128 characters."))
 var choices = {
   uppercase: false,
   lowercase: false,
@@ -11,13 +10,14 @@ var choices = {
   numbers: false
 }
 
-choices.uppercase = confirm("Do you want to include uppercase?")
-choices.lowercase = confirm("Do you want to include lowercase?")
-choices.specialCharacters = confirm("Do you want to include special characters?")
-choices.numbers = confirm("Do you want to include numbers?")
-
 var bowl = ""
 function generatePassword() {
+  var passwordLength = parseInt(prompt("How many characters? It must be between 8 and 128 characters."))
+  choices.uppercase = confirm("Do you want to include uppercase?")
+  choices.lowercase = confirm("Do you want to include lowercase?")
+  choices.specialCharacters = confirm("Do you want to include special characters?")
+  choices.numbers = confirm("Do you want to include numbers?")
+
   var password = ""
   if(choices.uppercase) {
     bowl+=letters.toUpperCase()
